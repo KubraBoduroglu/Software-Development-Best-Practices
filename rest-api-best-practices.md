@@ -63,4 +63,6 @@ HTTP Status Codes
 503 Service Unavailable: Sunucu şu anda hizmet vermiyor (çok yoğun trafik alan sitelerde)   
 504 Gateway Timeout: Gateway/sunucu kaynak sunucudan belirli bir zaman içinde cevap alamadı (çok yoğun trafik alan sitelerde)  
 
-
+Response Modelleri  
+* İçerikler JSON olmalı  
+* HTTP response kodları, dönen response içeriğiyle eşleşiyor olmalı  
