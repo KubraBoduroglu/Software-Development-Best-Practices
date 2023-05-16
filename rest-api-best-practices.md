@@ -1,6 +1,6 @@
 # Rest Api Best Practices by Gökhan Ayrancıoğlu url:https://github.com/G-khan at Turkey Java Community YouTube Channel  
 https://www.youtube.com/live/aNr3QXvPpFU?feature=share  
-
+asdasd  
 Api Naming  
 * Resource'lar isim olmalı, fiil değil.  
 * Resource'lar çoğul olarak isimlendirilmeli.  
