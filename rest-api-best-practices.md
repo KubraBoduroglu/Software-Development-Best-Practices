@@ -45,3 +45,9 @@ HTTP Status Codes
 * 201 CREATED (POST) : Yeni resorce başarıyla oluşturuldu  
 * 202 ACCEPTED (POST) : Sunucu isteği kabul etti, işleme alacak (async. yapılar örnek)  
 * 204 No Content (DELETE) :  Resource boş/ resource silindi 
+
+
+4xx Başarısızlar:  
+400 Bad Request: Geçersiz istek/query  
+401 Unauthorized: Yetki gerekiyor  
+
