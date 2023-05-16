@@ -32,3 +32,11 @@ Pagination
 
 API Dokümantasyonu  
 * Swagger, Postman  
+
+HTTP Status Codes  
+* 1xx: Bilgi. İstek sunucuya ulaştı.  
+* 2xx: Başarılı. İstek sunucuya ulaştı, anlaşıldı, başarılı.  
+* 3xx: Yönlendirme. Erişilmek istenen resource'un  başka kaynağa taşındığını ve yönlendirme gerektiğini ifade eder.  
+* 4xx: Client kaynaklı hata. İstek yerine getirilmedi, geçersiz, doğru veri gönderilmedi, resource'a ulaşılamadı.  
+* 5xx: Server kaynaklı hata. İstek sunucuya ulaştı,sunucudaki sorunlar nedeniyle yerine getirilemedi.  
+
