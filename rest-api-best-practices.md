@@ -40,4 +40,6 @@ HTTP Status Codes
 * 4xx: Client kaynaklı hata. İstek yerine getirilmedi, geçersiz, doğru veri gönderilmedi, resource'a ulaşılamadı.  
 * 5xx: Server kaynaklı hata. İstek sunucuya ulaştı,sunucudaki sorunlar nedeniyle yerine getirilemedi.  
 
+2xx Başarılılar:  
+* 200 OK          (GET)    :  İşlem başarılı  
 
