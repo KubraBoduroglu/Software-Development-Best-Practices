@@ -50,4 +50,20 @@ HTTP Status Codes
 4xx Başarısızlar:  
 400 Bad Request: Geçersiz istek/query  
 401 Unauthorized: Yetki gerekiyor  
+403 Forbidden: Sunucu isteği reddetti/ isteğe yetkiniz yok  
+404 Not Found: Resource yok  
+405 Method Not Allowed: Geçersiz HTTP metodu (sunucu get beklerken post geldi vs gibi)  
+409 Conflict: Uyumsuz/ eski versiyondaki istek  
+429 Too Many Request: Çok fazla istek  
+415 Unsupported Media Type: Desteklenmeyen/ yanlış content type  
 
+5xx Sunucu Kaynaklı Hatalar:  
+500 Internal Server Error: Sunucuda bir hata oldu (null pointer gibi)  
+501 Not Implemented: Sunucu istenilen isteği yerine getirecek şekilde yapılandırılmadı  
+502 Bad Gateway: Gateway/sunucu kaynak sunucudan cevap alamıyor (çok yoğun trafik alan sitelerde)  
+503 Service Unavailable: Sunucu şu anda hizmet vermiyor (çok yoğun trafik alan sitelerde)   
+504 Gateway Timeout: Gateway/sunucu kaynak sunucudan belirli bir zaman içinde cevap alamadı (çok yoğun trafik alan sitelerde)  
+
+Response Modelleri  
+* İçerikler JSON olmalı  
+* HTTP response kodları, dönen response içeriğiyle eşleşiyor olmalı  
