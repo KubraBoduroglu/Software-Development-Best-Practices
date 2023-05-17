@@ -44,4 +44,15 @@ HTTP Status Codes
 * `200 OK`         - `GET` : İşlem başarılı  
 * `201 CREATED`    - `POST`: Yeni resorce başarıyla oluşturuldu  
 * `202 ACCEPTED`   - `POST`: Sunucu isteği kabul etti, işleme alacak (async. yapılar örnek).  
-* `204 No Content` - `DELETE` :  Resource boş / resource silindi 
+* `204 No Content` - `DELETE` :  Resource boş / resource silindi  
+
+4xx Başarısızlar:  
+400 Bad Request: Geçersiz istek/query  
+401 Unauthorized: Yetki gerekiyor  
+403 Forbidden: Sunucu isteği reddetti/ isteğe yetkiniz yok  
+404 Not Found: Resource yok  
+405 Method Not Allowed: Geçersiz HTTP metodu (sunucu get beklerken post geldi vs gibi)  
+409 Conflict: Uyumsuz/ eski versiyondaki istek  
+429 Too Many Request: Çok fazla istek  
+415 Unsupported Media Type: Desteklenmeyen/ yanlış content type  
+
