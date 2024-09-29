@@ -32,7 +32,35 @@ public PaymentGateway(RequestHandlerFilter requestHandlerFilter) {
 2. Spring Context'ine gereksiz bir sınıf yüklemiş oluyoruz. Bu da contexti yorar. Buna zaten ihtiyaç kalmaması lazım. Utils içindeki metotları zaten `static` tanımladığımızda zaten Utils sınıfının objesinin oluşmasına ihtiyaç yok, o zaman da `@Component` olmasına ihtiyaç yok.  
 
 ### 4. Exception Handling  
-* Spring'in exception desteği; Spring uygulama içerisinde fırlattığımız RuntimeException'ları yakalayıp işleyebiliyor. 
+* Spring'in exception desteği; Spring uygulama içerisinde fırlattığımız RuntimeException'ları yakalayıp işleyebiliyor.  Global Exception yapısı bilinmiyorsa genelde metot bir try-catch'e alınıp catch'de exception fırlatılıyot veya return true/false yapılıyor.  
+* Ancak Spring ile `GlobalExceptionHandler` sınıfı tanımlanabilir. Bu sınıfın içerisinde `@ExceptionHandler()` ile metotlar işaretlenir. Böylece o exception uygulama iiçerisinde nerede fırlatılırsa Spring onu yakalar.  
+![App Screenshot]()  
+
+### 5. `@ResponseBody` Eklemeye Gerek Olmaması  
+* Eğer sınıfın `@RestController` ise `@ResponseBody` kullanmana gerek yok.  
+`@RestController = @Controller + @ResponseBody`  
+
+### 6. Her Sınıfa Bir Interface Oluşturulması Da Gereksiz  
+* Her bir sınıf için bir interface çok da gerekli değil. Tek yaptığı Controller'dan alıp service'e gitmek ise olmasa da olur.    
+* Interface nerelerde kullanılıyor: 2 servis birbiri ile sürtüşüyor ise burada kullanılabilir. Veya client'In içindeki sorumlulukları gizlemek istiyorsan araya bir Interface koyulabilir. Bir davranışı birden fazla sınıf implemente ediyorsa.  
+* Her bir sınıf için bir interface oluşturulması aslında bir alışkanlık. Spring'in eski sürümleri JDK'nın dynamic proxy'sini kullanıyor. O da interface olmadan o sınıfın instance'ını oluşturamıyor. Instance oluşmayınca context'e dahil edemiyor, context'e dahil edemeyince de uygulama ayağa kalkmıyor.  
+* Bunu nasıl çözdüler: SCL proxy kullandılar. SCL proxy de o uygulamayı inject alarak o sınıfın proxy'sini oluşturuyor yani bildiğimiz extend alıyor. 
+
+### 7. REST API İsimlendirmeleri
+* REST API standartlarındaki gibi isimlendirmeli.  
+* Fiil değil isim kullanımalı  
+* Çoğul kullanımalı.  
+* Versiyonlama yapılmalı.  
+
+### 8. Lombok Kullanımı  
+* `@Data` anotasyonunu sorun yaratıyor. Performans sorunlarına sebep olabiliyor. Çünkü içinde `toString` var, çok büyük entitylerde bekletebiliyor. Ayrıca ,`equals` ve `hashCode` var, one-one, many-to-one ilişkilerde sonsuz döngülere sebep olabiliyor.  
+* Çözüm: Gerektiği yerde gerektiği kadar Lombok anotasyonu kullanmak. `@Data` yerine `@Getter`,`@Setter`,`@NoArgs` gibi. `equals`, `hashCode`, `toString` yerine metot implementasyonu yapma gibi.  
+
+### 9. @RequestParam Kullanımı  
+* İstekte belli bir pattern varsa `@RequestParam` kullanılabilir. Hepsiburada vs URL'lerindeki gibi.  
+* `@PathVariable` daha spesifik örnekler için. Bir resource'u getirdiğimiz zaman, bir id ile mesela.  
+* Genişleyebilecek endpointlerde, isteklerde `@RequestParam` yerine `@RequestBody` kullanabiliriz. query işletiyorsak, core bussiness yapmıyorsak `@RequestParam` kullanılabilir.  
 
 ## TODO
 * Null object pattern  
+* service mesh  
