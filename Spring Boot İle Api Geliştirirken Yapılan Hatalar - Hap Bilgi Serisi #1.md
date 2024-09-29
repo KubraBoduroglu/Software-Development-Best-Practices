@@ -26,7 +26,7 @@ public PaymentGateway(RequestHandlerFilter requestHandlerFilter) {
 * Null object pattern  
 ### Utils Sınıflarının Kullanımı  
 * Utils sınıfı için `@Component` anotasyonunu kullanıyorsak bu doğru değil. Neden: 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/KubraBoduroglu/Software-Development-Best-Practices/blob/main/utils-s%C4%B1n%C4%B1flar.png)  
 
 1. Spring context dışında, Spring bean'inin kullanamadığımız yerlerde bu sınıfı kullanamayız. Mesela bir enum içerisine bunu dahil edemeyiz. 
 2. Spring Context'ine gereksiz bir sınıf yüklemiş oluyoruz. Bu da contexti yorar. Buna zaten ihtiyaç kalmaması lazım. Utils içindeki metotları zaten `static` tanımladığımızda zaten Utils sınıfının objesinin oluşmasına ihtiyaç yok, o zaman da `@Component` olmasına ihtiyaç yok.  
